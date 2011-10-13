@@ -1,21 +1,39 @@
 <html>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <body>
-
 <script type="text/javascript"  src="http://mimg.127.net/p/tools/jquery/jquery-1.3.2.min.js"></script>
-<div id="taskItemList">
+ <div id="taskItemList">
    <a  style="display:none" href="http://quote.forex.hexun.com/2010/Data/FRunTimeQuote.ashx?code=XAUUSD&&time=220940" target="_blank">dropbox</a>
    <input  id="test" type="button" value="查看黄金价格"/>
-</div>
+ </div>
 <div id="result">
 现在的黄金价格为：1600.55美元
 </div>
 <script>
 $("#test").bind("click",function(){
-$("#result").text("现在的黄金价格是：oh yeah success");
+
+var aurl="hq.sinajs.cn/?rn=1318518056542&list=HKDCNY";
+
+ var regresult="aaa";
+        $.ajax({
+        type : "GET",
+        url : aurl,
+        dataType : 'json',
+        success : function(result) {
+            regresult=result;
+            $("#result").text(regresult);
+        }
+    });
+
+
+
+
 });
+
 </script>
 </body>
 </html>
+
+
 
 
